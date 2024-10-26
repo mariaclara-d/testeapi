@@ -5,19 +5,19 @@ app = Flask(__name__)
 
 #criar rota para buscar id tendo como parametro o nome da skin
 
-# Carrega o JSON com os IDs das skins, usando a codificação UTF-8
+
 with open("cs2_marketplaceids.json", "r", encoding="utf-8") as file:
     skins_data = json.load(file)
 
-# Função para buscar o ID da skin pelo nome
+
 def get_skin_id(skin_name):
-    # Acessa a chave "items"
+   
     items = skins_data.get("items", {})
     
-    # Procura o nome da skin nos itens
+  
     for item_name, details in items.items():
         if item_name.lower() == skin_name.lower():
-            return details.get("buff163_goods_id")  # Retorna o ID desejado
+            return details.get("buff163_goods_id")  
     return None
 
 # Rota para buscar o ID da skin
